@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
 
@@ -10,7 +10,7 @@ function Login() {
   });
   const [err, setErr] = useState(null);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault();
     try {
       await login(inputs);
-      // navigate("/");
+      navigate("/");
     } catch (err) {
       setErr(err.response.data);
     }
@@ -57,7 +57,7 @@ function Login() {
               name="password"
               onChange={handleChange}
             />
-            {err && err}
+            {err && <h3 style={{ color: "#cb0000" }}>{err}</h3>}
             <button onClick={handleLogin}>Login</button>
           </form>
         </div>

@@ -24,7 +24,7 @@ function LeftBar() {
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src={Jibun} alt="" width={30} height={30} />
+            <img src={currentUser.coverPic} alt="" width={30} height={30} />
             <span>{currentUser.name}</span>
           </div>
           <div className="item">

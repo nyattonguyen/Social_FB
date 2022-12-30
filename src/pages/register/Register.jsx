@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import baseUrl from "../../assets/common/baseUrl.js";
 import axios from "axios";
 import "./regiter.scss";
 function Register() {
+  const navigate = useNavigate();
+
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
@@ -20,6 +22,7 @@ function Register() {
     e.preventDefault();
     try {
       await axios.post(`http://localhost:8888/api/auth/register`, inputs);
+      navigate("/login");
     } catch (err) {
       setErr(err);
     }
