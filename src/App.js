@@ -5,7 +5,6 @@ import "./App.scss";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
   Outlet,
   Navigate,
 } from "react-router-dom";
@@ -15,7 +14,7 @@ import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import "./style.scss";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 function App() {
